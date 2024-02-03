@@ -21,6 +21,20 @@ vector<int> InsertionSort(vector<int> A){
     return A;
 }
 
+vector<int> DecreasingInsertionSort(vector<int> A){
+    int key;
+    for(int j=2; j<A.size(); ++j){
+        key=A.at(j);
+        int i=j-1;
+        while(i>=0 && A.at(i)<key){
+            A.at(i+1)=A.at(i);
+            --i;
+        }
+        A.at(i+1)=key;
+    }
+    return A;
+}
+
 
 
 int main(){
@@ -42,7 +56,7 @@ int main(){
     cout<<length<<endl;
     printVector(A);
 
-    vector<int> res=InsertionSort(A);
+    vector<int> res=DecreasingInsertionSort(A);
     printVector(res);
 
 
